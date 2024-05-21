@@ -53,8 +53,10 @@ class FrictionCoefficents:
             f.write(geoseries_with_value_to_string(self.data.geometry,self.data.Value))
 
 
-inputs_path = 'inputs/'
-outputs_path = 'outputs/'
+# Define Data Paths
+data_path = os.getenv('DATA_PATH', '/data')
+inputs_path = os.path.join(data_path,'inputs')
+#outputs_path = 'outputs/'
 
 
 name_shp_file = 'FrictionCoeffs-test'
