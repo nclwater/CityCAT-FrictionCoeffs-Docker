@@ -1,8 +1,8 @@
 kind: M
-api_version: v1beta2
+api_version: v1beta3
 metadata:
   display_name: Urban_Flooding:FrictionCoeffs
-  name: FractionCoeffs
+  name: frictioncoeffs
   publisher: Newcastle University
   summary: >
     Extracts FrictionCoeff.txt file in CityCAT format from a shape file.
