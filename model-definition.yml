@@ -4,25 +4,31 @@ metadata:
   display_name: Urban_Flooding:FrictionCoeffs
   name: frictioncoeffs
   publisher: Newcastle University
-  summary: >
-    Extracts FrictionCoeff.txt file in CityCAT format from a shape file.
+  summary: Extracts FrictionCoeff.txt file in CityCAT format from a shape file.
   source_code: https://github.com/nclwater/CityCAT-FrictionCoeffs-Docker
   description: >
     This model takes a shape file which have  a specified value for the fraction coefficients. These are extracted
     to a FractionCoeffs.txt file in the format number of rows. then for each row, number of x-y values, fraction
     coeff value, then x values and then y values.
+  type: model
+  publisher: newcastle university
+  contact_point_name: steve birkinshaw
+  contact_point_email: s.j.birkinshaw@ncl.ac.uk
 spec:
   inputs:
     dataslots:
       - name: FrictionCoeffs
         description:
           This file should be shp format and the location of the non-default friction coeffs and their value.
+        default:
+        - 0e38bd3a-e4eb-4f8a-abc0-cd919d471745
+        - 69ac0f1a-c805-44e2-bedc-913dcb247242
         path: inputs/
         required: true
    
   outputs:
     datasets:
-      - name: ./*
+      - name: outputs/*
         type: folder
         description:
           A Friction Coeffient text file

@@ -48,24 +48,26 @@ class FrictionCoefficents:
         assert type(data) == gpd.GeoDataFrame
         self.data = data
 
-    def write(self, path):
-        with open(os.path.join(path, 'FrictionCoeffs.txt'), 'w') as f:
+    def write(self, outputs_path):
+        with open(os.path.join(outputs_path, 'FrictionCoeffs.txt'), 'w') as f:
             f.write(geoseries_with_value_to_string(self.data.geometry,self.data.Value))
 
 
 # Define Data Paths
 data_path = os.getenv('DATA_PATH', '/data')
-inputs_path = os.path.join(data_path,'inputs')
-#outputs_path = 'outputs/'
-
+inputs_path = os.path.join(data_path,'inputs/')
+outputs_path = os.path.join(data_path, 'outputs/')
+if not os.path.exists(outputs_path):
+    os.mkdir(outputs_path)
 
 name_shp_file = 'FrictionCoeffs-test'
 
 gdf = gpd.read_file(inputs_path + name_shp_file + '.shp')
-FrictionCoefficents(gdf).write('.')
+FrictionCoefficents(gdf).write(outputs_path)
 
 # Just printing the output of the file to show what's in it
-with open('FrictionCoeffs.txt') as f:
+#with open('FrictionCoeffs.txt') as f:
+with open(os.path.join(outputs_path, 'FrictionCoeffs.txt')) as f:
   print(*f.readlines()[:10])
   
 

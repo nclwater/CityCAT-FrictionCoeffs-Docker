@@ -1,10 +1,16 @@
-FROM continuumio/miniconda3:4.8.2
-ENV PYTHONUNBUFFERED 1
+FROM python:3.9
+RUN apt-get -y update
+RUN apt-get -y install libgdal-dev gdal-bin
+RUN pip install geopandas
 
-WORKDIR /app
-COPY environment.yml ./
-RUN conda env update -f environment.yml -n base
-COPY . /app
+RUN mkdir src
+
+WORKDIR src
+
+COPY script.py .
+
+COPY data /data
+
 CMD ["python", "./script.py"]
 
 
