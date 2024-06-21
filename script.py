@@ -55,6 +55,7 @@ class FrictionCoefficents:
 
 # Define Data Paths
 data_path = os.getenv('DATA_PATH', '/data')
+print(data_path)
 inputs_path = os.path.join(data_path,'inputs/')
 outputs_path = os.path.join(data_path, 'outputs/')
 if not os.path.exists(outputs_path):

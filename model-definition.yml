@@ -21,8 +21,7 @@ spec:
         description:
           This file should be shp format and the location of the non-default friction coeffs and their value.
         default:
-        - 0e38bd3a-e4eb-4f8a-abc0-cd919d471745
-        - 69ac0f1a-c805-44e2-bedc-913dcb247242
+        - - 79208ee3-5eda-4c60-accc-ea7c1037f4c7
         path: inputs/
         required: true
    
