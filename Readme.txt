@@ -20,7 +20,7 @@ A new Container called "fraction-coeffs" is produced.
 The Dockerfile spefies that this reads script.py into the src folder and the data into the /data folder in the container. then python script.py is run.
 
 The output is in the Docker container. to view output copy it to a local path
-docker cp friction-coeffs:/data/outputs/FrictionCoeffs.txt ./FrictionCoeffs.txt
+docker cp friction-coeffs:/data/outputs/frction_coeffs/FrictionCoeffs.txt ./FrictionCoeffs.txt
 
 
 https://docs.docker.com/guides/walkthroughs/run-a-container/

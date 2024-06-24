@@ -21,13 +21,13 @@ spec:
         description:
           This file should be shp format and the location of the non-default friction coeffs and their value.
         default:
-        - - 79208ee3-5eda-4c60-accc-ea7c1037f4c7
-        path: inputs/
+        - 79208ee3-5eda-4c60-accc-ea7c1037f4c7
+        path: inputs/friction_coeffs
         required: true
    
   outputs:
     datasets:
-      - name: outputs/*
+      - name: outputs/friction_coeffs/*
         type: folder
         description:
           A Friction Coeffient text file

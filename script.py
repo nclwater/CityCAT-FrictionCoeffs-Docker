@@ -2,7 +2,10 @@
 #host: Newcastle University
 import geopandas as gpd
 #from citycatio.utils import geoseries_to_string
+import pathlib
 import os
+from glob import glob
+
 
 def geoseries_with_value_to_string(geoseries: gpd.GeoSeries, value, index=False, index_first=True):
     """GeoSeries to CityCAT string representation
@@ -56,14 +59,21 @@ class FrictionCoefficents:
 # Define Data Paths
 data_path = os.getenv('DATA_PATH', '/data')
 print(data_path)
-inputs_path = os.path.join(data_path,'inputs/')
-outputs_path = os.path.join(data_path, 'outputs/')
+inputs_path = os.path.join(data_path,'inputs/friction_coeffs')
+outputs_path = os.path.join(data_path, 'outputs/friction_coeffs')
 if not os.path.exists(outputs_path):
-    os.mkdir(outputs_path)
+    pathlib.Path(outputs_path).mkdir(parents=True, exist_ok=True)
 
-name_shp_file = 'FrictionCoeffs-test'
 
-gdf = gpd.read_file(inputs_path + name_shp_file + '.shp')
+name_shp_file = glob(inputs_path + "/*.shp", recursive = True)
+
+#name_shp_file = 'FrictionCoeffs-test'
+
+if len(name_shp_file) == 1 :
+    gdf = gpd.read_file(name_shp_file[0])
+
+
+#gdf = gpd.read_file(inputs_path + name_shp_file + '.shp')
 FrictionCoefficents(gdf).write(outputs_path)
 
 # Just printing the output of the file to show what's in it
