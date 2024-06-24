@@ -10,7 +10,7 @@ This model takes a shape file with non-default friction coefficients. These have
   * Location: /data/inputs/friction_coeffs
 
 ## Outputs
-The model should output only one file a FrictionCoeffs.txt file in outputs/friction_coeffs 
+The model should output only one file a FrictionCoeffs.txt file in /data/outputs/friction_coeffs 
 
 ## Usage 
 ```
@@ -18,5 +18,7 @@ docker build -t friction-coeffs .
 docker run --name friction-coeffs friction-coeffs
 ```
 or
-set DATA_PATH=C:\Users\......\CityCAT-FrictionCoeffs-Docker\data```
+```
+set "DATA_PATH=C:\Users\......\CityCAT-FrictionCoeffs-Docker\data"
 python script.py
+```
